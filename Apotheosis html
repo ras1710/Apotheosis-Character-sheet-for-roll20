@@ -1,0 +1,119 @@
+<main>
+  <section class="header f-center">
+    <h1>Apotheosis</h1>
+    <span>A simple apotheosis character sheet</span>
+  </section>
+
+  <section class="common">
+    <label>Char name: <input name="attr_character_name" type="text"></label>
+    <label>Race: <input name="attr_race" type="text" ></label>
+    <label>defense: <input name="attr_defense" type="text" ></label>
+    <label>EP: <input type="number" name="attr_ep" value="0"> / <input type="number" name="attr_ep_max" value="0"></label>
+    <label>Wounds: <input type="number" name="attr_wounds" value="0"></label>
+    <label>Mp: <input type="number" name="attr_mp" value="0"> / <input type="number" name="attr_mp_max" value="0"></label>
+    <label>Move Speed: <input type="number" name="attr_move" value="0"> / <input type="number" name="attr_move_max" value="0"></label>
+    <label>Mp expenditure: <input type="number" name="attr_mplimit" value="0"></label>
+    
+  </section>
+
+  <section class="skill f-col nowrap">
+    <h3>Attributes</h3>
+    <div class="f-row nowrap">
+      <label>Str</label>
+      <input type="number" name="attr_strength" value="0">
+      <button type="roll" name="roll_strength" value="&{template:rolls} {{title=strength}} {{subtitle=@{character_name} }} {{roll= [[d20+@{strength}[strength] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Dex</label>
+      <input type="number" name="attr_Dexterity" value="0">
+      <button type="roll" name="roll_Dexterity" value="&{template:rolls} {{title=Dexterity}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Dexterity}[Dexterity] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Con</label>
+      <input type="number" name="attr_Constitution" value="3">
+      <button type="roll" name="roll_Constitution" value="&{template:rolls} {{title=Constitution}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Constitution}[Constitution] ]]}}"> </button>
+    </div>
+        <div class="f-row nowrap">
+      <label>Int</label>
+      <input type="number" name="attr_Intelligence" value="3">
+      <button type="roll" name="roll_Intelligence" value="&{template:rolls} {{title=Intelligence}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Intelligence}[Intelligence] ]]}}"> </button>
+    </div>
+        <div class="f-row nowrap">
+      <label>Cha</label>
+      <input type="number" name="attr_Charisma" value="3">
+      <button type="roll" name="roll_Charisma" value="&{template:rolls} {{title=Charisma}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Charisma}[Charisma] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Luck</label>
+      <input type="number" name="attr_luck" value="3">
+      <button type="roll" name="roll_luck" value="&{template:rolls} {{title=luck}} {{subtitle=@{character_name} }} {{roll= [[d20+@{luck}[luck] ]]}}"> </button>
+    </div>
+
+    <h3>Skills</h3>
+    <div class="f-col nowrap">
+      <label>Initiative </label>
+      <div class="f-row nowrap">
+        <input type="number" name="attr_init" value="0">
+        <button type="roll" name="roll_init" value="&{template:rolls} {{title=Initiative}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{init}[init]) &{tracker}]]}}"> </button>
+      </div>
+    </div>
+    </div>   
+  </section>
+
+  <section class="power">
+    <h3>Abilities</h3>
+    <textarea name="attr_powers"></textarea>
+  </section>
+
+  <section class="attack">
+    <h3>Attacks</h3>
+    <textarea name="attr_attacks"></textarea>
+  </section>
+
+  <section class="inv">
+    <h3>Equipment</h3>
+    <textarea name="attr_inventory"></textarea>
+  </section>
+
+  <section class="misc">
+    <h3>Conditions</h3>
+    <textarea name="attr_description"></textarea>
+  </section>
+</main>
+
+<!-- Datalists & thing that don't show directly on sheet -->
+
+<datalist id="class">
+    <option value="Fighter">Fighter</option>
+    <option value="Mage">Mage</option>
+    <option value="Expert">Expert</option>
+</datalist>
+
+<!-- roll template -->
+
+<rolltemplate class="sheet-rolltemplate-rolls">
+  <div class="sheet-container">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#name}}<div class="sheet-name">{{name}}</div>{{/name}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title name subtitle desc}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title name subtitle desc}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>
+
+<section>
+    <div>
+    <label>Gold / Electrum / Silver / Copper </label>
+    <input type="number" name="attr_copper" value="1">
+    <input type="number" name="attr_electrum" value="0">
+    <input type="number" name="attr_silver" value="0"> 
+    <input type="number" name="attr_gold" value="0">
+    </div>
+</section>
