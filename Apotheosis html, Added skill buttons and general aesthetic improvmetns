@@ -1,0 +1,276 @@
+<main>
+  <section class="header f-center">
+    <h1>Apotheosis</h1>
+    <span>A simple apotheosis character sheet</span>
+  </section>
+
+  <section class="common">
+    <label>Char name: <input name="attr_character_name" type="text"></label>
+    <label>Race: <input name="attr_race" type="text" ></label>
+    <label>defense: <input name="attr_defense" type="text" ></label>
+    <label>EP: <input type="number" name="attr_ep" value="0"> / <input type="number" name="attr_ep_max" value="0">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Wounds: <input type="number" name="attr_wounds" value="0"></label></label>
+    <label>Mp: <input type="number" name="attr_mp" value="0"> / <input type="number" name="attr_mp_max" value="0">Mp expenditure: <input type="number" name="attr_mplimit" value="0"></label>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Move Speed: <input type="number" name="attr_move" value="0"> / <input type="number" name="attr_move_max" value="0"></label>
+    
+  </section>
+
+  <section class="skill f-col nowrap">
+    <h3>Attributes</h3>
+    <div class="f-row nowrap">
+      <label>Str</label>
+      <input type="number" name="attr_strength" value="0">
+      <button type="roll" name="roll_strength" value="&{template:rolls} {{title=strength}} {{subtitle=@{character_name} }} {{roll= [[d20+@{strength}[strength] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Dex</label>
+      <input type="number" name="attr_Dexterity" value="0">
+      <button type="roll" name="roll_Dexterity" value="&{template:rolls} {{title=Dexterity}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Dexterity}[Dexterity] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Con</label>
+      <input type="number" name="attr_Constitution" value="0">
+      <button type="roll" name="roll_Constitution" value="&{template:rolls} {{title=Constitution}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Constitution}[Constitution] ]]}}"> </button>
+    </div>
+        <div class="f-row nowrap">
+      <label>Int</label>
+      <input type="number" name="attr_Intelligence" value="0">
+      <button type="roll" name="roll_Intelligence" value="&{template:rolls} {{title=Intelligence}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Intelligence}[Intelligence] ]]}}"> </button>
+    </div>
+        <div class="f-row nowrap">
+      <label>Cha</label>
+      <input type="number" name="attr_Charisma" value="0">
+      <button type="roll" name="roll_Charisma" value="&{template:rolls} {{title=Charisma}} {{subtitle=@{character_name} }} {{roll= [[d20+@{Charisma}[Charisma] ]]}}"> </button>
+    </div>
+    <div class="f-row nowrap">
+      <label>Luck</label>
+      <input type="number" name="attr_luck" value="0">
+      <button type="roll" name="roll_luck" value="&{template:rolls} {{title=luck}} {{subtitle=@{character_name} }} {{roll= [[d20+@{luck}[luck] ]]}}"> </button>
+    </div>
+
+    <h3>Skills</h3>
+    <div class="f-col nowrap">
+      <label>Initiative </label>
+      <div class="f-row nowrap">
+        <input type="number" name="attr_init" value="0">
+        <button type="roll" name="roll_init" value="&{template:rolls} {{title=Initiative}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{init}[init]) &{tracker}]]}}"> </button>
+      </div>
+    </div>
+    </div>   
+  </section>
+
+  <section class="power">
+    <h3>Abilities</h3>
+    <textarea name="attr_powers"></textarea>
+  </section>
+
+  <section class="attack">
+    <h3>Attacks</h3>
+    <textarea name="attr_attacks"></textarea>
+  </section>
+
+  <section class="inv">
+    <h3>Equipment</h3>
+    <label> <input name="attr_inv1" type="text">
+    <input name="attr_inv2" type="text">
+    <input name="attr_inv3" type="text">
+    <input name="attr_inv4" type="text">
+    <input name="attr_inv5" type="text">
+    <input name="attr_inv6" type="text">
+    <input name="attr_inv7" type="text">
+    <input name="attr_inv8" type="text">
+    <input name="attr_inv9" type="text">
+    <input name="attr_inv10" type="text">
+    <input name="attr_inv11" type="text">
+    <input name="attr_inv12" type="text">
+    <input name="attr_inv13" type="text">
+    <input name="attr_inv14" type="text">
+    <input name="attr_inv15" type="text">
+    </label>
+
+  </section>
+
+  <section class="misc f-col nowrap">
+      <h3>Languages</h3>
+        <label>
+      <input name= "attr_lan2" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+
+        </label>
+    <h3>Conditions</h3>
+        <label>
+            <input name="attr_Con1" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+            <input name="attr_Con2" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+            <input name="attr_Con3" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+            <input name="attr_Con4" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+            <input name="attr_Con5" type="text" style="font-size: 12pt; height: 25px; width:330px; ">
+        </label>
+  </section>
+</main>
+
+<!-- Datalists & thing that don't show directly on sheet -->
+
+<datalist id="class">
+    <option value="Fighter">Fighter</option>
+    <option value="Mage">Mage</option>
+    <option value="Expert">Expert</option>
+</datalist>
+
+<!-- roll template -->
+
+<rolltemplate class="sheet-rolltemplate-rolls">
+  <div class="sheet-container">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#name}}<div class="sheet-name">{{name}}</div>{{/name}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title name subtitle desc}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title name subtitle desc}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>
+
+<section>
+    <div>
+    <label>Gold / Electrum / Silver / Copper </label>
+    <input type="number" name="attr_copper" value="0">
+    <input type="number" name="attr_electrum" value="0">
+    <input type="number" name="attr_silver" value="0"> 
+    <input type="number" name="attr_gold" value="0">
+    </div>
+</section>
+
+</div>
+<section>
+<div class="sheet-skills">
+    <h1>Skills</h1>
+    <h2>Strength</h2>
+        <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button style="height:50px;width:100px" type="roll" name="roll_Athletics" value="&{template:rolls} {{title=Athletics}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Strength}[Athletics])]]}}"><label>Athletics</label> </button>
+           </div>
+           
+     </div>
+     <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Grappling" value="&{template:rolls} {{title=Grappling}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{strength}[Grappling])]]}}"> <label>Grappling </label></button>
+      </div>
+    </div>
+    <h2>Dexterity</h2>
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Acrobatics" value="&{template:rolls} {{title=Acrobatics}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Dexterity}[Acrobatics])]]}}"><label>Acrobatics </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Reflex" value="&{template:rolls} {{title=Reflex}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Dexterity}[Reflex])]]}}"><label>reflex </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Stealth" value="&{template:rolls} {{title=Stealth}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Dexterity}[Stealth])]]}}"><label>Stealth </label> </button>
+      </div>
+    </div>
+    <h1>Constituion</h1>
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Awarenes" value="&{template:rolls} {{title=Awarenes}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Constitution}[Awarenes])]]}}"> <label>Awarenes </label></button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Endurance" value="&{template:rolls} {{title=Endurance}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Constitution}[Endurance])]]}}"> <label>Endurance </label></button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Survival" value="&{template:rolls} {{title=Survival}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Constitution}[Survival])]]}}"> <label>Survival </label></button>
+      </div>
+    </div>
+    <h1>Intelligence</h1>
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_ArcaneKnowledge" value="&{template:rolls} {{title=ArcaneKnowledge}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[ArcaneKnowledge])]]}}"><label>ArcaneKnowledge</label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Comprehension" value="&{template:rolls} {{title=Comprehension}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[Comprehension])]]}}"><label>Comprehension </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_History" value="&{template:rolls} {{title=History}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[History])]]}}"> <label>History </label></button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Investigation" value="&{template:rolls} {{title=Investigation}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[Investigation])]]}}"><label>Investigation </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Medicine" value="&{template:rolls} {{title=Medicine}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[Medicine])]]}}"><label>Medicine </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Nature" value="&{template:rolls} {{title=Nature}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[Nature])]]}}"> <label>Nature</label></button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Religion" value="&{template:rolls} {{title=Religion}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Intelligence}[Religion])]]}}"><label>Religion </label> </button>
+      </div>
+    </div>
+    <h1>Charisma</h1>
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_AnimalHandling" value="&{template:rolls} {{title=AnimalHandling}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[AnimalHandling])]]}}"><label>AnimalHandling </label> </button>
+      </div>
+    </div>
+    
+    <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Deception" value="&{template:rolls} {{title=Deception}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[Deception])]]}}"> <label>Deception </label></button>
+      </div>
+    </div>
+        <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Distraction" value="&{template:rolls} {{title=Distraction}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[Distraction])]]}}"><label>Distraction </label> </button>
+      </div>
+    </div>
+        <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Insight" value="&{template:rolls} {{title=Insight}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[Insight])]]}}"><label>Insight</label> </button>
+      </div>
+    </div>
+        <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Intimidation" value="&{template:rolls} {{title=Intimidation}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[Intimidation])]]}}"><label>Intimidation </label> </button>
+      </div>
+    </div>
+        <div class="f-col nowrap">
+      <div class="f-row nowrap">
+        <button type="roll" name="roll_Persuasion" value="&{template:rolls} {{title=Persuasion}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[Persuasion])]]}}"> <label>Persuasion </label></button>
+      </div>
+    </div>
+        <div class="f-col nowrap">   
+      <div class="f-row nowrap">           
+        <button type="roll" name="roll_SleightOfHand" value="&{template:rolls} {{title=SleightOfHand}} {{subtitle=@{character_name} }} {{roll= [[d20+(@{Charisma}[SleightOfHand])]]}}"> <label>sleight of Hand</label></button>
+      </div>
+</section>
